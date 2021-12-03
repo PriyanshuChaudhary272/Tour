@@ -1,0 +1,12 @@
+.active{
+    color: white;
+    border-bottom: solid white 3px;
+}
+.nav-link{
+    border-bottom: transparent solid;
+    margin-left: 1rem;
+}
+.nav-link:hover{
+    color: white;
+    border-bottom:white solid;
+}
