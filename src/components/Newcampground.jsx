@@ -4,7 +4,7 @@ import {React, useEffect} from 'react'
 export default function Newcampground() {
     const history = useHistory();
     useEffect(() => {
-    axios.get('/isLoggIn').then(res =>{
+    axios.get('https://tour-explore.herokuapp.com/isLoggIn').then(res =>{
         if(!res.data){
             history.push('/logins');
         }

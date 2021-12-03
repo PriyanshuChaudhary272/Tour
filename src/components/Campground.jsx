@@ -6,12 +6,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoicHJpeWFuc2h1MTQ4IiwiYSI6ImNrd25zbHhxNzJwYmcyc
 function Campgrounds() {
     const mapContainer = useRef(null);
     const map = useRef(null);
-    const [lng, setLng] = useState(-70.9);
-    const [lat, setLat] = useState(42.35);
+    // const [lng, setLng] = useState(-70.9);
+    // const [lat, setLat] = useState(42.35);
     const [zoom, setZoom] = useState(9);
     const [camps, setCamps] = useState([]);
     useEffect(() => {
-        axios.get('/campground').then(res => {
+        axios.get('https://tour-explore.herokuapp.com/campground').then(res => {
             setCamps(res.data)
             // console.log(JSON.stringify(res.data))
         

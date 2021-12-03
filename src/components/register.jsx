@@ -16,7 +16,7 @@ export default function Register() {
                     <img className="card-img-top" src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1838&q=80" alt="" />
                         <h5 className="text-center">Register</h5>
                         <div className="col-6 offset-3">
-                            <form action="/register" method="post" className="needs-validation">
+                            <form action="https://tour-explore.herokuapp.com/register" method="post" className="needs-validation">
                                 <div className="mb-3">
                                     <label className="form-label" htmlFor="username">Username</label>
                                     <input className="form-control" type="text" name="username" id="username" required />

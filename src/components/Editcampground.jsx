@@ -8,12 +8,12 @@ function Editcampground() {
     const [img, setImg] = useState([])
     const { id } = useParams();
     useEffect(() => {
-        axios.get('/isLoggIn').then(res => {
+        axios.get('https://tour-explore.herokuapp.com/isLoggIn').then(res => {
             if (!res.data) {
                 return history.push('/logins');
             }
             else {//in this way we are handling the cleanup of Effect hook
-                axios.get(`/campground/${id}`)
+                axios.get(`https://tour-explore.herokuapp.com/campground/${id}`)
                     .then(res => {
                         setCamp(Object.values(res.data));
                         setImg(res.data.images);
@@ -27,7 +27,7 @@ function Editcampground() {
         <div className="container mt-5 pt-5">
             <h1 className="text-center">Edit Location</h1>
             <div className="col-md-6 offset-md-3">
-                <form action={`/campground/${id}?_method=PUT`} method="post" className="needs-validation" encType="multipart/form-data">
+                <form action={`https://tour-explore.herokuapp.com/campground/${id}?_method=PUT`} method="post" className="needs-validation" encType="multipart/form-data">
                     <div className="mb-3">
                         <label className="form-label" htmlFor="title">Title</label>
                         <input className="form-control" type="text" name="title" id="title" defaultValue={camp[2]} required />

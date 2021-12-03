@@ -9,8 +9,8 @@ function Showcampground({ match }) {
     // const {id}  = useParams();
     const mapContainer = useRef(null);
     const map = useRef(null);
-    const [lng, setLng] = useState(-70.9);
-    const [lat, setLat] = useState(42.35);
+    // const [lng, setLng] = useState(-70.9);
+    // const [lat, setLat] = useState(42.35);
     const [zoom, setZoom] = useState(9);
 
     const [camp, setCamp] = useState([]);
@@ -19,8 +19,8 @@ function Showcampground({ match }) {
     useEffect(function () {
         const { id } = match.params;
         async function authuser() {
-            const res = await axios.get(`/campground/${id}`);
-            const user = await axios.get('/isLoggin');
+            const res = await axios.get(`https://tour-explore.herokuapp.com/campground/${id}`);
+            const user = await axios.get('https://tour-explore.herokuapp.com/isLoggin');
             setCamp(res.data);
             setauthorized(user.data);
             setLogin(user.data);

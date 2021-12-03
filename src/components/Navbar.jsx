@@ -12,7 +12,7 @@ export default function Navbar() {
     }
     const [islogin, setislogin] = useState(false)
     useEffect(() => {
-        axios.get('/isLoggIn').then(res => {
+        axios.get('https://tour-explore.herokuapp.com/isLoggIn').then(res => {
             if (res) {
                 setislogin(res.data)
             }
