@@ -11,7 +11,7 @@ function Campgrounds() {
     const [zoom, setZoom] = useState(9);
     const [camps, setCamps] = useState([]);
     useEffect(() => {
-        axios.get('/campground').then(res => {
+        axios.get('https://tour-explore.herokuapp.com/campground').then(res => {
             setCamps(res.data)
             // console.log(JSON.stringify(res.data))
         
