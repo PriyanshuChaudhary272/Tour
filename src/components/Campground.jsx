@@ -141,7 +141,7 @@ function Campgrounds() {
                 new mapboxgl.Popup()
                     .setLngLat(coordinates)
                     .setHTML(
-                        `<Link to="/campgrounds/${mag.id}"><h4>${mag.title}</h4></Link>`
+                        `<a href="/campgrounds/${mag.id}"><h4>${mag.title}</h4></a>`
                     )
                     .addTo(map.current);
             });
