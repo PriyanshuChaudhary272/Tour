@@ -13,7 +13,7 @@ function Home() {
                     <p className='homeh2 text-center'>Join the community of travellers! <br />
                         explore the world with us.
                     </p>
-                    <Link href="/campgrounds" className="btn btn-secondary">Explore More!</Link>
+                    <Link to="/campgrounds" className="btn btn-secondary">Explore More!</Link>
                 </div>
             </div>
         </div>
