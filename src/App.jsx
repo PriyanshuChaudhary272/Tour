@@ -22,7 +22,7 @@ function App() {
             <Switch>
                 <Route path="/registers" exact component={Register} />
                 <Route path="/logins" exact component={Login} />
-                <Route path="https://condescending-elion-7f0a44.netlify.app/campgrounds" exact component={Campgrounds} />
+                <Route path="/" exact component={Campgrounds} />
                 <Route path="/campgrounds/add" exact component={Newcampground} />
                 <Route path='/campgrounds/:id' exact component={Showcampground} />
                 <Route path="/campgrounds/:id/edit" exact component={Editcampground} />
