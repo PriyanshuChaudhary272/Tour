@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import {React, useEffect} from 'react'
 export default function Newcampground() {
@@ -53,7 +53,7 @@ export default function Newcampground() {
                     </div>
                     <button className="btn btn-success">Add Location</button>
                 </form>
-                <a  className="btn btn-secondary mt-4" href="/campgrounds">Go Back</a>
+                <Link  className="btn btn-secondary mt-4" to="/campgrounds">Go Back</Link>
             </div>
         </div>
     )

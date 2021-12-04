@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function Error({ match }) {
     const [m, setM] = useState('Page not found');
@@ -22,7 +23,7 @@ export default function Error({ match }) {
                         {/* <p className="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> */}
                     </div>
                     <div className="text-center">
-                        <a href="/campgrounds" className='mt-3 btn btn-warning' role='button'>Go back</a>
+                        <Link to="/campgrounds" className='mt-3 btn btn-warning' role='button'>Go back</Link>
                     </div>
                 </div>
             </div>

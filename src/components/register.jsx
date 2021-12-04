@@ -1,4 +1,7 @@
 // import React, { useState, useEffect} from 'react'
+
+import { Link } from "react-router-dom";
+
 // import axios from 'axios';
 export default function Register() {
 
@@ -33,8 +36,8 @@ export default function Register() {
                                 <button className="btn btn-success mb-4">Register</button>
                                 </div>
                             </form>
-                            <a className="btn btn-secondary mb-4 " href="/logins">Login</a>
-                            <a className="btn btn-secondary mb-4 ms-1" href="/campgrounds">Go Back</a>
+                            <Link className="btn btn-secondary mb-4 " to="/logins">Login</Link>
+                            <Link className="btn btn-secondary mb-4 ms-1" to="/campgrounds">Go Back</Link>
                         </div>
                     </div>
                 </div>

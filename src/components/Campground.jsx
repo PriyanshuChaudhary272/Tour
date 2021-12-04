@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import { Link } from "react-router-dom";
 mapboxgl.accessToken = 'pk.eyJ1IjoicHJpeWFuc2h1MTQ4IiwiYSI6ImNrd25zbHhxNzJwYmcycW5zMHl5OTBrc3AifQ.IIsmFvf_1fN4RZsmEAZ7Ow';
-
 function Campgrounds() {
     const mapContainer = useRef(null);
     const map = useRef(null);
@@ -141,7 +141,7 @@ function Campgrounds() {
                 new mapboxgl.Popup()
                     .setLngLat(coordinates)
                     .setHTML(
-                        `<a href="/campgrounds/${mag.id}"><h4>${mag.title}</h4></a>`
+                        `<Link to="/campgrounds/${mag.id}"><h4>${mag.title}</h4></Link>`
                     )
                     .addTo(map.current);
             });
@@ -172,7 +172,7 @@ function Campgrounds() {
                                     <h4>{e.title}</h4>
                                     <p>{e.description}</p>
                                     <p className="text-muted">{e.location}</p>
-                                    <a className="btn btn-info" href={`/campgrounds/${e._id}`}>Details</a>
+                                    <Link className="btn btn-info" to={`/campgrounds/${e._id}`}>Details</Link>
                                 </div>
                             </div>
                         </div>

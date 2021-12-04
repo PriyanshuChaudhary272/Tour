@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 function Editcampground() {
@@ -60,7 +61,7 @@ function Editcampground() {
                     )}
 
                     <button className="btn btn-info mb-4 d-block">Update Location</button>
-                <a  className="btn btn-secondary mb-4" href="/campgrounds">Go Back</a>
+                <Link  className="btn btn-secondary mb-4" to="/campgrounds">Go Back</Link>
                 </form>
             </div>
         </div>

@@ -1,4 +1,7 @@
 // import React, { useState, useEffect} from 'react'
+
+import { Link } from "react-router-dom";
+
 // import axios from 'axios';
 export default function Login() {
 
@@ -29,7 +32,7 @@ export default function Login() {
                                 <button className="btn btn-success mb-4 ">Login</button>
                                 </div>
                             </form>
-                            <a className="align-center btn btn-secondary mb-4 " href="/campgrounds">Go Back</a>
+                            <Link className="align-center btn btn-secondary mb-4 " to="/campgrounds">Go Back</Link>
                         </div>
                     </div>
                 </div>

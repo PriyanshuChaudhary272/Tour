@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import axios from 'axios';
 import Errorhandler from './Errorhandler'
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import { Link } from 'react-router-dom';
 mapboxgl.accessToken = 'pk.eyJ1IjoicHJpeWFuc2h1MTQ4IiwiYSI6ImNrd25zbHhxNzJwYmcycW5zMHl5OTBrc3AifQ.IIsmFvf_1fN4RZsmEAZ7Ow';
 // import { useParams } from 'react-router-dom'// we c an either use this to get params from url orr we can get complete info of route using match object
 function Showcampground({ match }) {
@@ -88,14 +89,14 @@ function Showcampground({ match }) {
                                         <form className="d-inline" action={`/campground/${camp._id}?_method=DELETE`} method="post">
                                             <button className="btn btn-danger me-1 ">Delete</button>
                                         </form>
-                                        <a className="btn btn-info ms-1 " href={`/campgrounds/${camp._id}/edit`} >Edit</a>
+                                        <Link className="btn btn-info ms-1 " to={`/campgrounds/${camp._id}/edit`} >Edit</Link>
                                     </div> :
                                     null
                             }
 
                             <div className="card-footer">
                                 <small className="text-muted">3 days ago</small>
-                                <a className="btn-light m-1" href="/campgrounds">All Campgrounds</a>
+                                <Link className="btn-light m-1" to="/campgrounds">All Campgrounds</Link>
                             </div>
                         </div>
                     </div>

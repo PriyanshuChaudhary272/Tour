@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import "./common.css"
 const axios = require('axios')
 
@@ -22,16 +23,16 @@ export default function Navbar() {
         <div>
             <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">Tour</a>
+                    <Link className="navbar-brand" to="/">Tour</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <a className="nav-link" aria-current="page" href="/">Home</a>
-                            <a className="nav-link" href="/campgrounds">Explore</a>
-                            <a className="nav-link" href="/campgrounds/add">Add Location</a>
+                            <Link className="nav-link" aria-current="page" to="/">Home</Link>
+                            <Link className="nav-link" to="/campgrounds">Explore</Link>
+                            <Link className="nav-link" to="/campgrounds/add">Add Location</Link>
                         </div>
                         <div className="navbar-nav ms-auto">
                             {
@@ -40,8 +41,8 @@ export default function Navbar() {
                                         <button className="btn btn-warning">Logout</button>
                                     </form> :
                                     <>
-                                        <a className="nav-link" href="/logins">Login</a>
-                                        <a className="nav-link" href="/registers">Register</a>
+                                        <Link className="nav-link" to="/logins">Login</Link>
+                                        <Link className="nav-link" to="/registers">Register</Link>
                                     </>
                             }
                         </div>
