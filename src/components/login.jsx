@@ -28,12 +28,12 @@ export default function Login() {
                         <div className="col-6 offset-3">
                             <form className="needs-validation">
                                 <div className="mb-3">
-                                    <label className="form-label" htmlFor="username">Username</label>
-                                    <input className="form-control" onChange={(e)=> setUser(e.target.value)} type="text" name="username" id="username" autoFocus required />
+                                    <label className="form-label">Username</label>
+                                    <input className="form-control" onChange={(e)=> setUser(e.target.value)} type="text" id="username" autoFocus required />
                                 </div>
                                 <div className="mb-3">
-                                    <label className="form-label" htmlFor="password">Password</label>
-                                    <input className="form-control" onChange={(e)=> setPassword(e.target.value)}  type="password" name="password" id="password" required />
+                                    <label className="form-label">Password</label>
+                                    <input className="form-control" onChange={(e)=> setPassword(e.target.value)} type="password" id="password" required />
                                 </div>
                                 <div className="d-grid gap-2">
                                 <button className="btn btn-success mb-4" onClick={login} >Login</button>
