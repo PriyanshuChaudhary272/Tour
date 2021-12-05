@@ -1,10 +1,11 @@
-// import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect} from 'react'
 
 import { Link } from "react-router-dom";
 
 // import axios from 'axios';
 export default function Login() {
 
+    // const [user, setUser] = useSta
     // const [camps, setCamps] = useState([]);
     // useEffect(() => {
     //     axios.get('/fakeuser').then(res => {
