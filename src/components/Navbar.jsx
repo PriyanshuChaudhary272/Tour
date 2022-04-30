@@ -1,24 +1,29 @@
 import { React, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useContext } from 'react'
+import loginContext from '.././Context/Login/Logincontext';
 import "./common.css"
-const axios = require('axios')
 
 export default function Navbar() {
-    const nav = document.querySelectorAll('.nav-link');
-    for(var i of nav){
-        i.addEventListener('click',function(){
-            // i.classList.add('active')
-            console.log(i)
-        })
-    }
+    const history = useHistory();
+    const loginContext1 = useContext(loginContext);
+    const { loginStatus, userLogin, userLogout } = loginContext1;
     const [islogin, setislogin] = useState(false)
     useEffect(() => {
-        axios.get('https://tour-explore.herokuapp.com/isLoggIn').then(res => {
-            if (res) {
-                setislogin(res.data)
-            }
-        })
-    },[])
+        if(localStorage.getItem('token')){
+            setislogin(true)
+            userLogin();
+        }
+    },[localStorage.getItem('token')])
+    const handleClick = () =>{
+        if(localStorage.getItem('token')){
+            localStorage.removeItem('token');
+            localStorage.removeItem('userid');
+            userLogout();
+        }
+        setislogin(false);
+        history.push('/campgrounds');
+    }
     return (
         <div>
             <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -36,10 +41,9 @@ export default function Navbar() {
                         </div>
                         <div className="navbar-nav ms-auto">
                             {
-                                (islogin !== false)?
-                                    <form action="/logout?_method=GET" method="post">
-                                        <button className="btn btn-warning">Logout</button>
-                                    </form> :
+                                (loginStatus)?
+                                        <button className="btn btn-warning" onClick = {handleClick}>Logout</button>
+                                    :
                                     <>
                                         <Link className="nav-link" to="/logins">Login</Link>
                                         <Link className="nav-link" to="/registers">Register</Link>

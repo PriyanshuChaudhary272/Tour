@@ -7,6 +7,7 @@ useEffect(() => {
     axios.get('/fakeuser').then(res => {
         setCamps(res.data)
     })
+    // eslint-disable-next-line 
 }, [])
 return (
     <div className="container my-5 pt-5">

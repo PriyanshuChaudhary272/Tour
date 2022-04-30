@@ -11,6 +11,7 @@ export default function Error({ match }) {
             const {message = 'Page not found', status = '404'} = match.params;
             setM(message); setS(status);
         }
+        // eslint-disable-next-line 
     }, [])
     return (
         <div className="container">

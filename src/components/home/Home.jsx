@@ -5,8 +5,8 @@ import './home.css'
 function Home() {
     return (
         <div className="mt-5 pt-5 home d-flex flex-column justify-content-center">
-            <div className="row d-flex">
-                <div className="col-md-6 col-8 offset-md-3 offset-2 d-flex flex-column align-items-center">
+            <div className="row d-flex m-0">
+                <div className="col-md-6  offset-md-3 offset-2 d-flex flex-column align-items-center">
                     <h2 className='homeh2'>
                         Welcome To Tour!
                     </h2>

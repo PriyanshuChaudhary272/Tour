@@ -10,3 +10,18 @@
     color: white;
     border-bottom:white solid;
 }
+body {
+  background-color: #CAD2D3;
+}
+.Global-map{
+    width: 100%;
+    height: 400px;
+}
+@media only screen and (max-width: 600px) {
+    .Global-map{
+        height: 200px;
+    }
+    .Home-Heading{
+        font-size: 1.2rem;
+    }
+  }

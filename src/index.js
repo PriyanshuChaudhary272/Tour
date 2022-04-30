@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import LoginState from './Context/Login/Loginstate';
 import App from './App'
+
 // import { createStore } from 'redux'
 // import allReducers from './reducers'
 // import { Provider } from 'react-redux';
@@ -9,7 +11,9 @@ import App from './App'
 // store.dispatch()
 ReactDOM.render(
   // <Provider store={store}>=
+  <LoginState>
     <App />
+  </LoginState>
   //  </Provider> 
   ,
   document.getElementById('root')
