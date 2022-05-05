@@ -38,8 +38,8 @@ function Editcampground() {
         // }
         axios({
             method: 'POST',
-            // url: `http://localhost:5000/campground/${id}?_method=PUT`,
-            url: `https://tour-explore.herokuapp.com/campground/${id}?_method=PUT`,
+            url: `http://localhost:5000/campground/${id}?_method=PUT`,
+            // url: `https://tour-explore.herokuapp.com/campground/${id}?_method=PUT`,
             headers: {
                 "Content-Type": 'application/json',
                 "auth-token": `${localStorage.getItem('token')}`,
@@ -81,13 +81,13 @@ function Editcampground() {
                     <div className="mb-3">
                         <label className="form-label" htmlFor="price">Price</label>
                         <div className="input-group mb-3">
-                            <span className="input-group-text" id="price">$</span>
+                            <span className="input-group-text" id="price">₹</span>
                             <input className="form-control text-muted" onChange = {onchange} type="text" name="price" id="price" defaultValue={camp.price} required />
                         </div>
                     </div>
                     <div className="mb-3">
-                        <label className="form-label" htmlFor="image">Image</label>
-                        <input className="form-control" onChange = {onchange} type="file" name="image" id="image" multiple />
+                        {/* <label className="form-label" htmlFor="image">Image</label> */}
+                        {/* <input className="form-control" onChange = {onchange} type="file" name="image" id="image" multiple /> */}
                     </div>
                     {img.map((e, i) =>
                         <div key={`image-${i}`} className="mb-3 d-inline-block">

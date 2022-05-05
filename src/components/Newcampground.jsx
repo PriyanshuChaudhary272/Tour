@@ -21,15 +21,18 @@ export default function Newcampground() {
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
-        const formData = new FormData();
-        const image = document.querySelector('input[type="file"][multiple]');
+        // const formData = new FormData();
+        // const image = document.querySelector('input[type="file"][multiple]');
+        
+        // for (let i = 0; i < image.files.length; i++) {
+        //     formData.append(`image`, image.files[i]);
+        // }
+
+
         // const details = document.querySelectorAll('input[type="text"]');
         // for(let i = 0; i < details.length; i++){
         //     formData.append(`${details[i].__reactProps$48hoo19a7xi.name}`, details[i].value);
         // }
-        for (let i = 0; i < image.files.length; i++) {
-            formData.append(`image`, image.files[i]);
-        }
         axios({
             method: 'POST',
             // url: 'http://localhost:5000/campground',
@@ -76,8 +79,8 @@ export default function Newcampground() {
                         </div>
                     </div>
                     <div className="mb-3">
-                        <label className="form-label" htmlFor="image">Image</label>
-                        <input className="form-control" type="file" name="image" id="image" multiple />
+                        {/* <label className="form-label" htmlFor="image">Image</label> */}
+                        {/* <input className="form-control" type="file" name="image" id="image" multiple /> */}
                         <div className="valid-feedback">
                             Looks good!
                         </div>
@@ -92,7 +95,7 @@ export default function Newcampground() {
                     <div className="mb-3">
                         <label className="form-label" htmlFor="price">Price</label>
                         <div className="input-group mb-3">
-                            <span className="input-group-text" id="price">$</span>
+                            <span className="input-group-text" id="price">₹</span>
                             <input className="form-control text-muted" onChange = {onchange} type="text" name="price" id="price" placeholder="0.00" required />
                         </div>
                     </div>

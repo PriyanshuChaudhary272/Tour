@@ -18,6 +18,8 @@ function Showcampground({ match }) {
     const [authorized, setauthorized] = useState(false);
     const [reviewdata, setReviewdata] = useState({ rating: 0, review: "" });
     const [login, setLogin] = useState(false);
+    const [deleted, setDeleted] = useState(false);
+
     const onchange = (e) => {
         setReviewdata({ ...reviewdata, [e.target.name]: e.target.value })
     }
@@ -94,10 +96,32 @@ function Showcampground({ match }) {
                 }
             })
     }
+    const handleDelete = async (e) => {
+        e.preventDefault();
+        axios({
+            method: 'POST',
+            url: `http://localhost:5000/campground/${camp._id}?_method=DELETE`,
+            // url: `https://tour-explore.herokuapp.com/campground/${camp._id}?_method=DELETE`,
+            headers: {
+                "Content-Type": 'application/json',
+                "auth-token": localStorage.getItem('token'),
+                "userid": localStorage.getItem('userid')
+            },
+        })
+            .then((data) => {
+                console.log(data);
+                if (data.data.success) {
+                    setDeleted(true);
+                }
+                else {
+                }
+            })
+    }
     if (camp.title) {
         return (
             <>
                 <div className="d-flex flex-sm-row flex-column row mt-5 mb-5 pt-5 mx-auto container">
+                    {deleted && <h5 className='mb-4' style= {{ color: "#BB2D3A", textAlign:"center", fontWeight: "bold"}}>Deleted! Its Time to say 👋 BYE...</h5> }
                     <div className="col-sm-6">
                         <div className="card">
                             <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -133,15 +157,15 @@ function Showcampground({ match }) {
                             <ul className="list-group list-group-flush">
                                 <li className="list-group-item">Location: {camp.location}</li>
                                 <li className="list-group-item">Submited by: {camp.author.username}</li>
-                                <li className="list-group-item">Price: ${camp.price}</li>
+                                <li className="list-group-item">Price: ₹{camp.price}</li>
                             </ul>
                             {
                                 authorized === true ?
                                     <div className="card-body">
-                                        <form className="d-inline" action={`/campground/${camp._id}?_method=DELETE`} method="post">
-                                            <button className="btn btn-danger me-1 ">Delete</button>
+                                        <form onSubmit={handleDelete} className="d-inline">
+                                           {deleted === false &&  <button className="btn btn-danger me-1 ">Delete</button>}
                                         </form>
-                                        <Link className="btn btn-info ms-1 " to={`/campgrounds/${camp._id}/edit`} >Edit</Link>
+                                        {deleted === false && <Link className="btn btn-info ms-1 " to={`/campgrounds/${camp._id}/edit`} >Edit</Link>}
                                     </div> :
                                     null
                             }
@@ -155,7 +179,7 @@ function Showcampground({ match }) {
                     <div className="col-sm-6">
                         <div style={{ width: "100%", height: "300px" }} ref={mapContainer} className="map-container mb-2" />
                         {
-                            login ?
+                            ((deleted === false) && login) ?
                                 < div className='p-sm-4' style={{ backgroundColor: "#F7F7F7" }} >
                                     <h5 className='mt-4' >Leave a Review</h5>
                                     <form name='Review-form' onSubmit={handleSubmit} >
@@ -203,7 +227,6 @@ function Showcampground({ match }) {
                                             <p className="starability-result" data-rating={e.rating}>
                                                 Rated: 3 stars
                                             </p>
-                                            {console.log(e)}
                                             <h6 className="card-subtitle mb-2 text-muted">{e.review}</h6>
                                             {
                                                 e.author._id === localStorage.getItem('userid') ?
