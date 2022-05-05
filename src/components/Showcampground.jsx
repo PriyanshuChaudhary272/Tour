@@ -100,8 +100,8 @@ function Showcampground({ match }) {
         e.preventDefault();
         axios({
             method: 'POST',
-            url: `http://localhost:5000/campground/${camp._id}?_method=DELETE`,
-            // url: `https://tour-explore.herokuapp.com/campground/${camp._id}?_method=DELETE`,
+            // url: `http://localhost:5000/campground/${camp._id}?_method=DELETE`,
+            url: `https://tour-explore.herokuapp.com/campground/${camp._id}?_method=DELETE`,
             headers: {
                 "Content-Type": 'application/json',
                 "auth-token": localStorage.getItem('token'),

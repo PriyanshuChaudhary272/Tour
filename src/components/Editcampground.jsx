@@ -38,8 +38,8 @@ function Editcampground() {
         // }
         axios({
             method: 'POST',
-            url: `http://localhost:5000/campground/${id}?_method=PUT`,
-            // url: `https://tour-explore.herokuapp.com/campground/${id}?_method=PUT`,
+            // url: `http://localhost:5000/campground/${id}?_method=PUT`,
+            url: `https://tour-explore.herokuapp.com/campground/${id}?_method=PUT`,
             headers: {
                 "Content-Type": 'application/json',
                 "auth-token": `${localStorage.getItem('token')}`,
